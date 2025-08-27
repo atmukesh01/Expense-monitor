@@ -1,0 +1,112 @@
+/* TrackExpense.css */
+
+.page-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f9fafb;
+  color: #FF6600; /* Orange text color */
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #222;
+  color: #FF6600;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 10px;
+  color: #FF6600;
+}
+
+.nav-link {
+  color: #FF6600;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffa500; /* brighter orange on hover */
+}
+
+.nav-link-active {
+  color: #ffa500;
+  font-weight: bold;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 30px;
+  gap: 40px;
+  overflow-y: auto;
+  color: #FF6600;
+  box-sizing: border-box;
+}
+
+.left-content {
+  flex: 1;
+  min-width: 320px;
+  max-width: 480px;
+}
+
+.right-content {
+  flex: 1;
+  min-width: 320px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: block;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #FF6600;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  color: #d6cc3b;
+}
+
+.expense-row {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 0;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #FF6600;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ffa500;
+}
