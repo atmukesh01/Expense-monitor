@@ -11,7 +11,6 @@ const navItems = [
   { path: "/previous-plans", imgSrc: "/images/previous.png", alt: "Previous Plans" },
   { path: "/login", imgSrc: "/images/login.jpeg", alt: "Login" },
 ];
-
 const Home = () => (
   <div
     style={{
