@@ -1,112 +1,165 @@
-/* TrackExpense.css */
+/*
+ * CONSOLIDATED STYLES FOR TRACKEXPENSE
+ * This file contains all styles for the page, including the layout
+ * (sidebar, main content) and component-specific elements.
+*/
 
+/* 1. FONT IMPORT & GLOBAL STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #111827;
+  --bg-light: #1F2937;
+  --border-color: #374151;
+  --text-primary: #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --accent-orange: #F97316;
+  --accent-orange-hover: #FB923C;
+}
+
+/* Apply a base font and color scheme if not already global */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+h2, h3, h4 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+
+/* 2. LAYOUT: PAGE CONTAINER, SIDEBAR, MAIN CONTENT */
 .page-container {
   display: flex;
-  height: 100vh;
-  background-color: #f9fafb;
-  color: #FF6600; /* Orange text color */
-  font-family: Arial, sans-serif;
+  min-height: 100vh;
 }
 
 .sidebar {
-  width: 200px;
-  background-color: #222;
-  color: #FF6600;
+  width: 220px;
+  background-color: var(--bg-dark);
+  border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 24px;
 }
 
 .sidebar-title {
-  margin-bottom: 20px;
-  font-size: 22px;
-  border-bottom: 1px solid #555;
-  padding-bottom: 10px;
-  color: #FF6600;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16px;
+  color: var(--accent-orange);
 }
 
-.nav-link {
-  color: #FF6600;
-  padding: 10px 0;
+.nav-link, .nav-link-active {
+  color: var(--text-secondary);
+  padding: 12px;
   text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: block; /* Ensures proper spacing */
 }
 
 .nav-link:hover {
-  color: #ffa500; /* brighter orange on hover */
+  color: var(--text-primary);
+  background-color: var(--bg-light);
 }
 
 .nav-link-active {
-  color: #ffa500;
-  font-weight: bold;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 16px;
+  color: #FFFFFF;
+  background-color: var(--accent-orange);
+  font-weight: 600;
 }
 
 .main-content {
   display: flex;
   flex: 1;
-  padding: 30px;
+  padding: 40px;
   gap: 40px;
   overflow-y: auto;
-  color: #FF6600;
-  box-sizing: border-box;
+  align-items: flex-start;
 }
 
-.left-content {
+/* 3. COMPONENT-SPECIFIC STYLES */
+
+.left-content, .right-content {
   flex: 1;
-  min-width: 320px;
-  max-width: 480px;
+  background-color: var(--bg-light);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
 }
 
-.right-content {
-  flex: 1;
-  min-width: 320px;
-  max-width: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.left-content { max-width: 600px; }
+.right-content { display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; min-width: 400px; max-width: 450px; }
+
+.alert-banner {
+  position: fixed; top: 0; left: 0; right: 0;
+  background-color: #ffdddd; color: #a00;
+  padding: 12px 20px; font-weight: 600; text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000;
 }
 
-.label {
-  display: block;
-  margin-bottom: 20px;
-  font-weight: 600;
-  font-size: 16px;
-  color: #FF6600;
+.title-container {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 1.5rem;
+}
+.title-container h2 { margin-bottom: 0; }
+
+.amount-display {
+  padding: 6px 14px; color: #ffffff; font-size: 0.9rem;
+  font-weight: 600; border-radius: 8px; transition: background-color 0.3s ease;
+}
+.amount-display.positive { background-color: #22c55e; }
+.amount-display.negative { background-color: #ef4444; }
+
+.label { display: block; margin-bottom: 16px; font-weight: 500; font-size: 1rem; color: var(--text-secondary); }
+.input { width: 100%; padding: 12px; font-size: 1rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg-dark); color: var(--text-primary); box-sizing: border-box; transition: all 0.3s ease; }
+.input:focus { outline: none; border-color: var(--accent-orange); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3); }
+
+.input-group { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
+.regular-expense-select { flex: 2; }
+.amount-input { flex: 1; }
+.expense-row { display: flex; margin-bottom: 12px; gap: 10px; }
+
+.expense-list { margin-top: 20px; margin-bottom: 10px; }
+.expense-list h4 { margin-bottom: 8px; }
+.expense-list-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+.expense-list-item:last-child { border-bottom: none; }
+
+.button { padding: 10px 20px; background-color: var(--accent-orange); border: none; color: white; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+.button:hover { background-color: var(--accent-orange-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+.button:disabled { background-color: #555; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.delete-button { color: var(--text-secondary); background: none; border: none; padding: 0; cursor: pointer; transition: color 0.3s ease; }
+.delete-button:hover { color: #EF4444; }
+
+.small-button { font-size: 0.85rem; padding: 6px 12px; min-width: auto; }
+.outline-button { background: transparent;
+   border: 1px solid var(--accent-orange);
+    color: var(--accent-orange); 
+  }
+.outline-button:hover { background: var(--accent-orange); color: #fff; }
+.finish-button { width: 100%; font-size: 1rem; padding: 12px; margin-top: 20px; }
+.save-button { display: block; margin: 0 auto 18px auto; width: 120px; font-size: 0.9rem; padding: 8px 0; }
+
+.grade-display { position: absolute; bottom: 80px; text-align: center; font-weight: 600; font-size: 18px; color: var(--text-primary); }
+
+.recharts-legend-item-text { color: var(--text-secondary) !important; }
+
+.sidebar {
+  /* ...all your other sidebar styles */
+  justify-content: space-between; /* This pushes the top and bottom sections apart */
 }
 
-.input {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  color: #d6cc3b;
-}
-
-.expense-row {
-  display: flex;
-  margin-bottom: 10px;
-  gap: 0;
-}
-
-.button {
-  padding: 10px 20px;
-  background-color: #FF6600;
-  border: none;
-  color: white;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #ffa500;
+/* You can also add some padding to the bottom section if you like */
+.sidebar-bottom {
+  padding-bottom: 1rem;
 }

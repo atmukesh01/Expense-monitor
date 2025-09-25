@@ -1,0 +1,95 @@
+/* src/LoginPage.css */
+
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-dark); /* Using variables from your main CSS */
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-form-container {
+  background-color: var(--bg-light);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.login-form-container h2 {
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--accent-orange);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--accent-orange-hover);
+  transform: translateY(-2px);
+}
+
+.message {
+  margin-top: 16px;
+  color: #ef4444; /* Red for errors */
+  font-weight: 500;
+}
+
+/* Green for success messages */
+.message:not(:empty):not(:lang(en)):not(:lang(es)) {
+    color: #22c55e;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: var(--accent-orange);
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}

@@ -1,55 +1,98 @@
-/* Home.css */
+/* src/App.css */
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
+/* 1. FONT IMPORT & GLOBAL STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #111827;
+  --bg-light: #1F2937;
+  --border-color: #374151;
+  --text-primary: #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --accent-orange: #F97316;
+  --accent-orange-hover: #FB923C;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+/* This makes sure our page content displays correctly over the fixed background */
+.app-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* === STYLES UPDATED BASED ON YOUR PROVIDED CODE === */
+
 .home-container {
-  height: 100vh; /* full viewport height */
+  min-height: 100vh;
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
-  gap: 40px;
-  flex-wrap: wrap;
-  text-align: center;
+  flex-direction: column; /* Stack title and nav grid vertically */
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   box-sizing: border-box;
 }
 
-.nav-item {
+.home-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent-orange, #F97316);
+  margin-bottom: 60px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px; /* Spacing between cards */
+  flex-wrap: wrap;
+}
+
+.nav-card {
   text-decoration: none;
-  color: #333;
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
-  align-items: center; /* center image and text horizontally */
-  width: 140px;
+  align-items: center;
+  width: 160px; /* Card width */
   cursor: pointer;
   transition: transform 0.3s ease;
   user-select: none;
 }
 
-.nav-item img {
-  width: 120px;
-  height: 120px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  object-fit: contain;
-}
-
-.nav-item:hover,
-.nav-item:focus {
-  transform: scale(1.1);
+.nav-card:hover,
+.nav-card:focus {
+  transform: scale(1.1); /* Scaling effect on hover */
   outline: none;
 }
 
-.nav-label {
-  margin-top: 10px;
+.nav-card-image {
+  width: 140px;  /* Image width */
+  height: 140px; /* Image height */
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  object-fit: cover; /* Changed to cover for better image display */
+  border: 2px solid var(--border-color);
+}
+
+.nav-card-title {
+  margin-top: 12px;
   font-size: 16px;
   font-weight: 600;
 }
+
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
@@ -57,16 +100,21 @@ body {
     gap: 30px;
   }
 
-  .nav-item {
-    width: 110px;
+  .home-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
   }
 
-  .nav-item img {
+  .nav-card {
+    width: 120px;
+  }
+
+  .nav-card-image {
     width: 100px;
     height: 100px;
   }
 
-  .nav-label {
+  .nav-card-title {
     font-size: 14px;
   }
 }
