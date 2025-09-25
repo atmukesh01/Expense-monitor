@@ -7,6 +7,9 @@
 /* 1. FONT IMPORT & GLOBAL STYLES */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* 1. FONT IMPORT & GLOBAL STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 :root {
   --bg-dark: #111827;
   --bg-light: #1F2937;
@@ -18,8 +21,15 @@
 }
 
 /* Apply a base font and color scheme if not already global */
-body {
+body{
   margin: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-primary);
@@ -32,11 +42,20 @@ h2, h3, h4 {
 
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; margin-top: 1.5rem; }
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
 
 /* 2. LAYOUT: PAGE CONTAINER, SIDEBAR, MAIN CONTENT */
 .page-container {
   display: flex;
   min-height: 100vh;
+  min-height: 100vh; /* MODIFIED: Allows the page to grow taller than the screen */
 }
 
 .sidebar {
@@ -162,4 +181,139 @@ h3 { font-size: 1.5rem; margin-top: 1.5rem; }
 /* You can also add some padding to the bottom section if you like */
 .sidebar-bottom {
   padding-bottom: 1rem;
+  align-items: flex-start; /* ADDED: Prevents the right box from stretching vertically */
 }
+
+.left-content, .right-content {
+  flex: 1;
+  background-color: var(--bg-light);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.left-content {
+  max-width: 600px;
+}
+
+.right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 400px;
+  max-width: 450px;
+}
+
+/* 3. FORM ELEMENTS & INPUTS */
+.label {
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+}
+
+.expense-row {
+  display: flex;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+/* 4. BUTTONS & INTERACTIVE ELEMENTS */
+.button {
+  padding: 10px 20px;
+  background-color: var(--accent-orange);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--accent-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.delete-button {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+  color: #EF4444; /* Red color on hover */
+}
+
+/* 5. SPECIFIC COMPONENT STYLES */
+.expense-list-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.expense-list-item:last-child {
+  border-bottom: none;
+}
+
+/* Ensure recharts legend text is visible */
+.recharts-legend-item-text {
+  color: var(--text-secondary) !important;
+}
+
+/* This new container uses flexbox to position the title and the amount display */
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; /* Replaces margin on h2 */
+}
+
+/* We remove the margin from the h2 since the container now handles it */
+.title-container h2 {
+  margin-bottom: 0;
+}
+
+/* These are the new styles for the amount display inside the box */
+.amount-display {
+  padding: 6px 14px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.amount-display.positive {
+  background-color: #22c55e; /* Green for positive balance */
+}
+
+.amount-display.negative {
+  background-color: #ef4444; /* Red for negative balance */
+}}

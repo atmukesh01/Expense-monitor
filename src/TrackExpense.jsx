@@ -90,7 +90,7 @@ const TrackExpense = () => {
         ...additionalExpenses.filter(e => e.name.trim() && e.amount > 0).map(e => ({ name: e.name, value: Number(e.amount) })),
     ];
     
-    const TrashIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24" fill="currentColor" cursor="pointer" style={{ marginLeft: 8 }}><path d="M3 6h18v2H3V6zm2 3h14v11c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V9zm3 3v6h2v-6H8zm4 0v6h2v-6h-2zm3-10H8v1h7V2z" /></svg>);
+    const TrashIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24" fill="currentColor" cursor="pointer" style={{ marginLeft: 8 }}><path d="M3 6h18v2H3V6zm2 3h14v11c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V9zm3 3v6h2v-6H8zm4 0v6h2v-6h-2zm3-10H8v1h7V2z" /></svg>);
     
     const availableOptions = regularExpenseOptions.map(opt => ({ value: opt, disabled: regularExpenses.some(exp => exp.category === opt) }));
     
