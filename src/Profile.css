@@ -1,0 +1,95 @@
+/* src/Profile.css */
+
+/* Using the color variables from the main CSS for consistency */
+:root {
+  --bg-dark: #111827;
+  --bg-light: #1F2937;
+  --border-color: #374151;
+  --text-primary: #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --accent-orange: #F97316;
+}
+
+.profile-content {
+  background-color: var(--bg-light);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-header h2 {
+  font-size: 2.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent-orange);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.profile-header p {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two-column layout */
+  gap: 24px;
+}
+
+/* Style for each form item */
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make email and phone span the full width */
+.form-item-full {
+  grid-column: 1 / -1;
+}
+
+/* Overriding some default styles for a cleaner look */
+.profile-form-grid .label {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.profile-form-grid .input {
+  background-color: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-form-grid .input:focus {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
+}
+
+.profile-form-grid .input:disabled {
+  background-color: #2a374a;
+  cursor: not-allowed;
+}
+
+.profile-form-grid .button {
+  grid-column: 1 / -1; /* Make button span full width */
+  margin-top: 1.5rem;
+  padding: 14px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.profile-message {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--accent-orange);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .profile-form-grid {
+    grid-template-columns: 1fr; /* Stack to a single column */
+  }
+}

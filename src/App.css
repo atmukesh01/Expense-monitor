@@ -118,3 +118,15 @@ body {
     font-size: 14px;
   }
 }
+
+/* Green style for the login button in sidebars */
+.nav-link.login-link {
+  background-color: #22c55e;
+  color: white !important; /* Use !important to override other link colors */
+  font-weight: 600;
+  text-align: center;
+}
+
+.nav-link.login-link:hover {
+  background-color: #16a34a;
+}
